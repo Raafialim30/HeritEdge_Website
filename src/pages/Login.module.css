@@ -1,0 +1,277 @@
+/* Login.module.css - REVISI TEMA BATIK & COKLAT */
+
+/* Definisikan palet warna untuk kemudahan modifikasi */
+:root {
+  --bg-color: #FDF9F3; /* Krem muda / off-white */
+  --card-bg: #FFFFFF;
+  --primary-brown: #5D4037; /* Coklat tua untuk teks utama */
+  --accent-brown: #8D6E63; /* Coklat medium untuk tombol dan link */
+  --accent-brown-dark: #6D4C41; /* Coklat lebih gelap untuk hover */
+  --border-color: #D7CCC8; /* Coklat muda untuk border */
+  --subtle-text: #757575; /* Abu-abu kecoklatan untuk sub-teks */
+}
+
+/* Login Container */
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Latar belakang krem dengan motif batik subtil */
+  background-color: var(--bg-color);
+  /* Ganti 'URL_MOTIF_BATIK.png' dengan URL gambar motif batik Anda */
+  background-image: url('https://e0.pxfuel.com/wallpapers/229/654/desktop-wallpaper-batik-culture-from-indonesian.jpg');
+  padding: 20px;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Menghapus animasi float */
+.loginContainer::before {
+  display: none;
+}
+
+/* Login Card */
+.loginCard {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 50px 40px;
+  /* Bayangan dengan warna coklat lembut */
+  box-shadow: 0 15px 35px rgba(93, 64, 55, 0.1);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loginCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(93, 64, 55, 0.15);
+}
+
+/* Back Button */
+.backButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #F5F5F5;
+  border: 1px solid var(--border-color);
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: var(--primary-brown);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.backButton:hover:not(:disabled) {
+  background: #E0E0E0;
+  border-color: var(--accent-brown);
+  transform: translateX(-2px);
+}
+
+.backButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Header */
+.loginHeader {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 10px;
+}
+
+.logo {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  /* Menghapus gradien, menggunakan warna solid */
+  color: var(--primary-brown);
+}
+
+.title {
+  font-size: 1.8rem;
+  color: var(--primary-brown);
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--subtle-text);
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Form */
+.loginForm {
+  margin-bottom: 25px;
+}
+
+.formGroup {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary-brown);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #FAFAFA;
+  font-family: inherit;
+  color: var(--primary-brown);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-brown);
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(141, 110, 99, 0.2);
+  transform: translateY(-1px);
+}
+
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Styling untuk error tetap sama */
+.inputError { border-color: #fc8181; background-color: #fff5f5; }
+.inputError:focus { border-color: #fc8181; box-shadow: 0 0 0 4px rgba(252, 129, 129, 0.15); }
+.errorText { color: #e53e3e; font-size: 0.85rem; margin-top: 6px; display: block; font-weight: 500; }
+
+/* Remember & Forgot */
+.rememberForgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-brown);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.rememberMe:hover {
+  color: var(--primary-brown);
+}
+
+.rememberMe input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent-brown);
+  cursor: pointer;
+}
+
+.forgotPassword {
+  background: none;
+  border: none;
+  color: var(--accent-brown);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.forgotPassword:hover:not(:disabled) {
+  color: var(--accent-brown-dark);
+}
+
+/* Submit Button */
+.submitButton {
+  width: 100%;
+  padding: 16px;
+  background: var(--accent-brown);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(141, 110, 99, 0.4);
+  background: var(--accent-brown-dark);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Styling disabled dan loading tetap sama */
+.submitButton:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.loadingText { display: inline-flex; align-items: center; gap: 8px; }
+.loadingText::after { content: ''; width: 16px; height: 16px; border: 2px solid transparent; border-top: 2px solid white; border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Footer */
+.loginFooter {
+  text-align: center;
+  padding-top: 25px;
+  border-top: 1px solid var(--border-color);
+}
+
+.footerText {
+  color: var(--subtle-text);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.switchButton {
+  background: none;
+  border: none;
+  color: var(--accent-brown);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin-left: 5px;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.switchButton:hover:not(:disabled) {
+  color: var(--accent-brown-dark);
+}
+
+/* Responsive styles tetap, tidak perlu diubah */
+@media (max-width: 768px) {
+  .loginContainer { padding: 15px; }
+  .loginCard { padding: 40px 30px; margin: 10px; }
+  .logo { font-size: 2.3rem; }
+  .title { font-size: 1.5rem; }
+}
+@media (max-width: 480px) {
+  .loginCard { padding: 35px 25px; }
+  .logo { font-size: 2rem; }
+  .title { font-size: 1.3rem; }
+  .rememberForgot { flex-direction: column; gap: 15px; align-items: flex-start; }
+  .backButton { top: 15px; left: 15px; padding: 8px 12px; font-size: 0.85rem; }
+  .input { padding: 12px 14px; }
+  .submitButton { padding: 14px; font-size: 1rem; }
+}

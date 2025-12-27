@@ -1,0 +1,227 @@
+/* src/components/Navbar.module.css */
+
+/* 1. Container Utama Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent; /* Transparan saat di atas */
+  transition: all 0.3s ease;
+  height: 80px; /* Tinggi navbar fix */
+}
+
+/* Warna background muncul saat discroll */
+.navbar.scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 2. Pengatur Tata Letak (Flexbox) */
+.navContainer {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  
+  display: flex;
+  justify-content: space-between; /* Memisahkan Kiri (Logo) dan Kanan (Auth) */
+  align-items: center;
+  position: relative; /* PENTING: Menjadi acuan untuk menu tengah */
+}
+
+/* --- BAGIAN KIRI: LOGO --- */
+.logo {
+  flex: 0 0 auto; /* Logo tidak boleh mengecil */
+  z-index: 20;    /* Pastikan logo di atas layer lain */
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoIcon {
+  height: 40px;
+  width: auto;
+}
+
+.logoText {
+  font-family: 'Playfair Display', serif; /* Font Khas Anda */
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #5D4037;
+  white-space: nowrap; /* Mencegah teks logo turun ke bawah */
+}
+
+/* --- BAGIAN TENGAH: MENU LINK --- */
+/* Menggunakan Absolute Positioning agar SELALU di tengah layar & tidak menabrak logo */
+.navLinks {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Trik agar benar-benar di tengah presisi */
+  
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #5D4037;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.navLinks a:hover, .activeLink {
+  color: #D84315;
+  font-weight: 700;
+}
+
+/* --- BAGIAN KANAN: AUTH BUTTONS --- */
+.navAuth {
+  flex: 0 0 auto; /* Jangan mengecil */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 150px; /* Memberi ruang agar tidak mepet */
+  z-index: 20;
+}
+
+/* Style tombol Auth (Login/Register) */
+.authButtonsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.loginLink {
+  text-decoration: none;
+  color: #5D4037;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.registerBtn {
+  background-color: #5D4037;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.3s;
+}
+
+.registerBtn:hover {
+  background-color: #3E2723;
+}
+
+/* --- STYLE PROFILE DROPDOWN (Saat Login) --- */
+.profileWrapper {
+  position: relative;
+}
+
+.profileBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 30px; /* Bentuk kapsul */
+  padding: 5px 15px 5px 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.profileBtn:hover {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.avatarCircle {
+  width: 32px;
+  height: 32px;
+  background-color: #D84315;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.profileName {
+  font-weight: 600;
+  color: #5D4037;
+  font-size: 0.9rem;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Dropdown Menu */
+.dropdownMenu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 220px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  text-decoration: none;
+  color: #333;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  text-align: left;
+  background: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdownItem:hover {
+  background-color: #fcebe6; /* Orange sangat muda */
+  color: #D84315;
+}
+
+.adminLink {
+  color: #D84315;
+  font-weight: bold;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.logoutBtnDropdown {
+  color: #d32f2f;
+  margin-top: 5px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.logoutBtnDropdown:hover {
+  background-color: #ffebee;
+  color: #b71c1c;
+}
+
+/* --- RESPONSIVE (HP) --- */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none; /* Sembunyikan menu di HP dulu (bisa tambah hamburger menu nanti) */
+  }
+}

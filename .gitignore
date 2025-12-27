@@ -1,9 +1,9 @@
 ################################
 # PENGABAIAN UMUM DAN SISTEM
 ################################
-.DS_Store # Mac OS
-Thumbs.db # Windows
-.vscode/ # Jika Anda tidak ingin berbagi konfigurasi editor lokal
+.DS_Store
+Thumbs.db
+.vscode/
 
 ################################
 # DEPENDENSI DAN LINGKUNGAN VIRTUAL
@@ -22,6 +22,4 @@ Thumbs.db # Windows
 ################################
 # FILE KONFIGURASI SENSITIF
 ################################
-
-# Jika Anda menyimpan variabel lingkungan
 .env

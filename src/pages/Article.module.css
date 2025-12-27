@@ -1,0 +1,203 @@
+.articlePage {
+ --bg-color: #fdfaf5;
+ --card-bg: #ffffff;
+ --primary-brown: #5D4037;
+ --subtle-text: #757575;
+ --border-color: #e6dac8;
+ --font-serif: 'Playfair Display', serif;
+ --font-sans: 'Lato', sans-serif;
+ --error-color: #d32f2f;
+ --error-bg: #fdecea;
+
+ background-color: var(--bg-color);
+ padding: 40px 20px;
+ display: flex;
+ flex-direction: column;
+ align-items: center; 
+ min-height: 100vh;
+ animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Header Halaman */
+.pageHeader {
+ text-align: center;
+ margin-bottom: 40px;
+ max-width: 900px; /* Menyamakan lebar dengan grid */
+ width: 100%;
+}
+
+.pageHeader h1 {
+ font-family: var(--font-serif);
+ font-size: 2.8rem;
+ color: var(--primary-brown);
+ margin-bottom: 10px;
+}
+
+.pageHeader p {
+ font-family: var(--font-sans);
+ font-size: 1.1rem;
+ color: var(--subtle-text);
+}
+
+.errorText {
+ color: var(--error-color);
+ background-color: var(--error-bg);
+ padding: 15px 20px;
+ border-radius: 8px;
+ border: 1px solid #f5c6cb;
+ display: inline-block;
+ margin-top: 20px;
+ font-weight: bold;
+}
+
+/* --- KARTU ARTIKEL UTAMA (FEATURED) --- */
+.featuredArticleCard {
+ display: grid;
+ /* Menggunakan rasio 2:3 atau 3:4 untuk gambar dan teks */
+ grid-template-columns: 3fr 2fr; 
+ gap: 30px; 
+ background-color: var(--card-bg);
+ border-radius: 20px;
+ box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+ border: 1px solid var(--border-color);
+ margin-bottom: 50px;
+ overflow: hidden;
+ max-width: 900px; 
+ width: 100%;
+ text-decoration: none;
+ color: inherit;
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featuredArticleCard:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 15px 35px rgba(93, 64, 55, 0.15);
+}
+
+/* Mengatur tinggi gambar Feature agar proporsional */
+.featuredArticleCard img {
+ width: 100%;
+ height: 400px; /* Diberi tinggi tetap untuk konsistensi di desktop */
+ object-fit: cover;
+}
+
+/* --- GRID ARTIKEL LAINNYA --- */
+.articleGrid {
+ display: grid;
+ /* Menggunakan minmax 280px agar lebih fleksibel di layar sedang */
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 30px;
+ width: 100%;
+ max-width: 900px; /* Konsisten dengan featured card */
+ margin-left: auto;
+ margin-right: auto;
+ justify-content: center;
+}
+
+/* Kartu Artikel Individual */
+.articleCard {
+ background-color: var(--card-bg);
+ border-radius: 12px; /* Dibuat sedikit lebih kecil untuk grid item */
+ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Shadow lebih ringan */
+ border: 1px solid var(--border-color);
+ overflow: hidden;
+ text-decoration: none;
+ color: inherit;
+ display: flex;
+ flex-direction: column;
+ height: 100%;
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.articleCard:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.articleCard img {
+ width: 100%;
+ height: 180px; /* Sedikit lebih pendek dari sebelumnya */
+ object-fit: cover;
+}
+
+/* Konten di dalam semua kartu */
+.cardContent {
+ padding: 20px; /* Padding sedikit dikurangi */
+ display: flex;
+ flex-direction: column;
+ flex-grow: 1;
+}
+
+.cardDate {
+ font-size: 0.8rem; /* Ukuran font lebih kecil */
+ color: var(--subtle-text);
+ margin-bottom: 8px;
+}
+
+.cardContent h2, .cardContent h3 {
+ font-family: var(--font-serif);
+ color: var(--primary-brown);
+ margin: 0 0 8px 0;
+ line-height: 1.3;
+}
+
+.cardContent h2 { font-size: 1.8rem; } /* Sedikit lebih kecil */
+.cardContent h3 { font-size: 1.3rem; } /* Sedikit lebih kecil */
+
+/* Text Limiter (Agar teks database yang panjang tidak merusak layout) */
+.cardContent p {
+ font-family: var(--font-sans);
+ color: var(--subtle-text);
+ line-height: 1.5;
+ margin-bottom: 15px;
+ flex-grow: 1;
+ 
+ /* Style untuk memotong teks */
+ display: -webkit-box;
+ -webkit-line-clamp: 3; /* Maksimum 3 baris */
+ -webkit-box-orient: vertical;
+ overflow: hidden;
+ text-overflow: ellipsis;
+}
+
+/* Khusus featured card boleh 5 baris */
+.featuredArticleCard .cardContent p {
+ -webkit-line-clamp: 5;
+}
+
+.readMore {
+ font-weight: bold;
+ color: var(--primary-brown);
+ text-decoration: none;
+ align-self: flex-start;
+ font-size: 0.95rem;
+}
+
+/* Animasi Fade In */
+@keyframes fadeIn {
+ from { opacity: 0; transform: translateY(15px); }
+ to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    /* Pada layar tablet/kecil, ubah rasio featured card menjadi 1:1 */
+    .featuredArticleCard {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    .featuredArticleCard img {
+        height: 300px; /* Sedikit lebih pendek di tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .articlePage {
+        padding: 20px 10px;
+    }
+   .pageHeader h1 { font-size: 2.2rem; }
+    .cardContent { padding: 15px; }
+   .featuredArticleCard img {
+      height: 250px;
+   }
+}

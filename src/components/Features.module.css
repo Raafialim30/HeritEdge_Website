@@ -1,0 +1,99 @@
+/* Container Utama */
+.featuresSection {
+  width: 100%;
+  max-width: 1200px;
+  /* REVISI: Margin atas diperbesar (8rem) agar tidak tertimpa Navbar */
+  margin: 8rem auto 5rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem;
+  color: #2c2c2c;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Garis hiasan di bawah judul */
+.title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #8B4513;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.featuresGrid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* KARTU FITUR */
+.featureCard {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 160px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: #4a4a4a;
+  
+  /* Shadow lembut */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+/* LINGKARAN PEMBUNGKUS IKON */
+.iconCircle {
+  width: 70px;
+  height: 70px;
+  background-color: #FFF0E0; /* Warna Krem/Peach lembut */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Warna Ikon */
+.iconCircle svg {
+  color: #8B4513; /* Warna Coklat Kayu */
+  transition: color 0.3s ease;
+}
+
+.featureCard span {
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+
+/* EFEK HOVER */
+.featureCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.15);
+}
+
+/* Saat hover, lingkaran berubah warna */
+.featureCard:hover .iconCircle {
+  background-color: #8B4513;
+  transform: scale(1.1);
+}
+
+/* Saat hover, ikon jadi putih */
+.featureCard:hover .iconCircle svg {
+  color: #ffffff;
+}

@@ -1,0 +1,199 @@
+/* src/pages/AdminDashboard.module.css */
+
+/* --- Font & Warna Utama --- */
+/* :root -> Mendefinisikan variabel global untuk font dan warna (coklat, krem, dll) */
+:root {
+ --font-serif: 'Playfair Display', serif;
+ --font-sans: 'Lato', sans-serif;
+ --bg-color: #fdfaf5;
+ --card-bg-color: #ffffff;
+ --text-dark: #3a3a3a;
+ --text-light: #6c6c6c;
+ --primary-color: #8B4513; /* Coklat tua untuk aksen */
+}
+
+/* --- Container Utama --- */
+/* .adminContainer -> Latar belakang dan font default seluruh halaman admin */
+.adminContainer {
+ background-color: var(--bg-color);
+ min-height: 100vh;
+ font-family: var(--font-sans);
+}
+
+/* --- Navbar Admin --- */
+/* .adminNav -> Style untuk navbar (flexbox, padding, bayangan) */
+.adminNav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 1rem 3rem;
+ background-color: var(--card-bg-color);
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* .logoWrapper, .adminLogoIcon, .adminLogoText -> Mengatur logo (ikon + teks) di navbar */
+.logoWrapper a {
+ display: flex;
+ align-items: center;
+ text-decoration: none;
+}
+.adminLogoIcon {
+ height: 35px;
+ margin-right: 12px;
+}
+.adminLogoText {
+ font-family: var(--font-serif);
+ font-weight: bold;
+ font-size: 1.5rem;
+ color: var(--text-dark);
+}
+
+/* .navLinks -> Mengatur link di sisi kanan navbar (termasuk efek hover) */
+.navLinks span, .navLinks a {
+ margin-left: 2rem;
+ cursor: pointer;
+ color: var(--text-light);
+ transition: color 0.2s;
+ text-decoration: none;
+}
+.navLinks span:hover, .navLinks a:hover {
+ color: var(--primary-color);
+}
+
+/* --- Konten Dashboard --- */
+/* .dashboard -> Padding untuk area konten utama */
+.dashboard {
+ padding: 2rem 3rem;
+}
+
+/* .mainTitle -> Style untuk judul utama halaman (e.g., "Welcome Admin") */
+.mainTitle {
+ font-family: var(--font-serif);
+ font-size: 2.5rem;
+ color: var(--text-dark);
+ margin-bottom: 2rem;
+}
+
+/* --- Grid Layout --- */
+/* .gridContainer -> Menggunakan CSS Grid untuk tata letak 3 kolom */
+.gridContainer {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ /* Mendefinisikan area penempatan kartu */
+ grid-template-areas:
+  "welcome welcome stats"
+  "chart chart activity";
+ gap: 1.5rem;
+}
+
+/* --- Styling Kartu Umum--- */
+/* .card -> Style dasar untuk semua kartu (latar putih, bayangan, sudut bulat) */
+.card {
+ background-color: var(--card-bg-color);
+ border-radius: 16px;
+ padding: 1.5rem;
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+ border: 1px solid #f0e9de;
+}
+.card h3 {
+ margin-top: 0;
+ font-family: var(--font-serif);
+ color: var(--text-dark);
+}
+
+/* --- Styling Kartu Spesifik --- */
+/* .welcomeCard -> Menempati area 'welcome' (2 kolom) */
+.welcomeCard {
+ grid-area: welcome;
+}
+.welcomeCard h2 {
+ margin-top: 0;
+ font-family: var(--font-serif);
+ font-size: 1.8rem;
+}
+.welcomeCard p {
+ color: var(--text-light);
+ font-size: 1rem;
+}
+
+/* .statsCard -> Menempati area 'stats' (1 kolom) dan styling angka */
+.statsCard {
+ grid-area: stats;
+}
+.statsNumbers {
+ display: flex;
+ justify-content: space-around;
+ text-align: center;
+ margin-top: 1.5rem;
+}
+.statsNumbers .number {
+ display: block;
+ font-size: 2rem;
+ font-weight: bold;
+ color: var(--primary-color);
+}
+.statsNumbers span {
+ font-size: 0.9rem;
+ color: var(--text-light);
+}
+
+/* .chartCard -> Menempati area 'chart' (2 kolom) */
+.chartCard {
+ grid-area: chart;
+}
+.chartWrapper {
+ height: 250px; /* Atur tinggi chart */
+ margin-top: 1rem;
+}
+
+/* .activityCard -> Menempati area 'activity' (1 kolom) dan styling list */
+.activityCard {
+ grid-area: activity;
+}
+.activityCard ul {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+}
+.activityCard li {
+ margin-bottom: 1.2rem;
+}
+.activityCard li strong {
+ display: block;
+ color: var(--text-dark);
+ margin-bottom: 2px;
+}
+.activityCard li span {
+ color: var(--text-light);
+ font-size: 0.9rem;
+}
+
+/* --- Responsiveness --- */
+/* @media (max-width: 1024px) -> Mengubah layout grid untuk Tablet (menjadi 2 kolom) */
+@media (max-width: 1024px) {
+ .gridContainer {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+"welcome welcome"
+"stats activity"
+"chart chart";
+ }
+}
+
+/* @media (max-width: 768px) -> Mengubah layout grid untuk HP (menjadi 1 kolom/bertumpuk) */
+@media (max-width: 768px) {
+ .adminNav {
+  padding: 1rem 1.5rem;
+ }
+ .dashboard {
+  padding: 1.5rem;
+ }
+ .gridContainer {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+"welcome"
+"stats"
+"chart"
+"activity";
+ }
+}

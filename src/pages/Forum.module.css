@@ -1,0 +1,192 @@
+/* --- GLOBAL LAYOUT --- */
+.forumLayout {
+  display: grid;
+  grid-template-columns: 260px 1fr 320px;
+  min-height: 100vh;
+  background-color: #faf9f6;
+  color: #1a1a1b;
+  font-family: 'Lato', sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+  /* REVISI: Memberikan jarak agar halaman agak ke bawah */
+  padding-top: 120px; 
+}
+
+/* --- SIDEBAR KIRI --- */
+.sidebarLeft {
+  border-right: 1px solid #ebebeb;
+}
+
+.stickyNav {
+  position: sticky;
+  /* REVISI: Menyesuaikan posisi sticky dengan padding-top layout */
+  top: 120px; 
+  padding: 0 20px;
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo sudah dihapus di JSX, jadi CSS .logo bisa dibuang */
+
+.mainNav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #444;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.navItem:hover {
+  background-color: #f0eee9;
+  color: #8B4513;
+}
+
+.navItem.active {
+  font-weight: 700;
+  color: #8B4513;
+  background-color: #fdf5f0;
+}
+
+.logoutBtn {
+  margin-bottom: 30px; /* Jarak dari bawah screen */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  color: #d32f2f;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+/* --- MAIN FEED --- */
+.feed {
+  background: #fff;
+  border-right: 1px solid #ebebeb;
+  border-left: 1px solid #ebebeb;
+}
+
+.feedHeader {
+  padding: 20px 25px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+}
+
+.feedHeader h2 {
+  margin: 0;
+  font-family: 'Merriweather', serif;
+  font-size: 1.4rem;
+}
+
+.createPostCard {
+  padding: 25px;
+  border-bottom: 8px solid #faf9f6;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.titleInput, .createPostCard textarea {
+  border: 1px solid #eee;
+  padding: 12px;
+  border-radius: 8px;
+  outline: none;
+  background: #fcfcfc;
+}
+
+.postBtn {
+  background: #8B4513;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+/* Post Cards */
+.postCard {
+  padding: 25px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.authorName { font-weight: 700; }
+.postDate { color: #888; font-size: 0.8rem; margin-left: 10px; }
+
+.repliesSection {
+  margin-top: 15px;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.replyItem {
+  margin-bottom: 10px;
+  padding: 8px;
+  background: white;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.replyInputWrapper {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.replyInputWrapper input {
+  flex: 1;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+.replySendBtn {
+  background: #8B4513;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* TOASTS */
+.toastSuccess { background: #e6fffa; color: #2c7a7b; padding: 10px; text-align: center; }
+.toastError { background: #fff5f5; color: #c53030; padding: 10px; text-align: center; }
+
+/* SIDEBAR RIGHT */
+.sidebarRight {
+  padding: 20px;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #eee;
+  padding: 10px 15px;
+  border-radius: 25px;
+}
+
+.searchBar input {
+  border: none;
+  background: transparent;
+  outline: none;
+}

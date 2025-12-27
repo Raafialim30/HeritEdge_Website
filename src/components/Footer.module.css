@@ -1,0 +1,115 @@
+/* src/components/Footer.module.css */
+
+.footer {
+  background-color: #5D4037; /* Coklat Tua Utama */
+  color: #fdfaf5; /* Warna teks terang (krem sangat muda) */
+  padding-top: 60px;
+  font-family: 'Lato', sans-serif;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr; /* Pembagian kolom */
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+/* Kolom 1: Brand */
+.logoText {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.tagline {
+  line-height: 1.6;
+  color: #d7ccc8; /* Warna teks agak redup */
+  font-size: 0.95rem;
+}
+
+/* Kolom 2 & 3: Judul */
+.linkSection h3, .contactSection h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  border-bottom: 2px solid #8D6E63;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Links */
+.linkSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.linkSection li {
+  margin-bottom: 10px;
+}
+
+.linkSection a {
+  color: #d7ccc8;
+  text-decoration: none;
+  transition: color 0.3s, padding-left 0.3s;
+}
+
+.linkSection a:hover {
+  color: #ffffff;
+  padding-left: 5px; /* Efek geser sedikit saat hover */
+}
+
+/* Contact */
+.contactSection p {
+  color: #d7ccc8;
+  margin-bottom: 10px;
+}
+
+.socialIcons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.icon {
+  color: #fff;
+  font-size: 0.85rem;
+  text-decoration: none;
+  border: 1px solid #8D6E63;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.icon:hover {
+  background-color: #8D6E63;
+  color: white;
+}
+
+/* Baris Copyright (Watermark Bawah) */
+.copyrightBar {
+  background-color: #4E342E; /* Coklat yang lebih gelap lagi */
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #aca199;
+  border-top: 1px solid #6d4c41;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .socialIcons {
+    justify-content: center;
+  }
+}

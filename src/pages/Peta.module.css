@@ -1,0 +1,101 @@
+/* src/pages/Peta.module.css */
+
+.petaPageContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #fdfaf5;
+  min-height: 100vh;
+  box-sizing: border-box;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.petaHeader {
+  text-align: center;
+  margin-bottom: 30px;
+  /* BARU: Batasi lebar header agar sejajar dengan peta */
+  width: 100%;
+  max-width: 900px;
+}
+
+.petaHeader h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: #4a4a4a;
+  margin-bottom: 8px;
+}
+
+.petaHeader p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  color: #6c6c6c;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* REVISI: Mengubah max-width agar tidak terlalu lebar */
+.mapView {
+  height: 60vh; /* Sedikit mengurangi tinggi agar lebih proporsional */
+  width: 100%;
+  max-width: 900px; /* Batasi lebar peta agar lebih ringkas */
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+/* ======================================= */
+/* STYLING UNTUK KONTEN POPUP */
+/* ======================================= */
+.popupContent {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+
+.popupImage {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.popupTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #3a3a3a;
+  display: block;
+}
+
+.popupInfo {
+  font-size: 0.85rem;
+  color: #6c6c6c;
+  margin: 4px 0 0 0;
+}
+
+/* Mengkustomisasi tampilan default Leaflet Popup */
+:global(.leaflet-popup-content-wrapper) {
+  border-radius: 10px !important;
+  padding: 1px !important; /* Hapus padding default */
+}
+
+/* REVISI: Mengatur lebar popup agar gambar pas */
+:global(.leaflet-popup-content) {
+  width: 200px !important; /* Memberi lebar tetap pada konten popup */
+  margin: 12px !important;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

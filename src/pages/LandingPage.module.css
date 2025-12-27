@@ -1,0 +1,29 @@
+/* src/pages/LandingPage.module.css */
+
+/* Container utama untuk seluruh Landing Page */
+.landingContainer {
+  /* Menggunakan warna background krem lembut */
+  background-color: #FDF9F3; 
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden; /* Mencegah scroll horizontal jika ada elemen melebar */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Jika Anda ingin menggunakan gambar motif background 
+   yang di-import (motif-background.png), 
+   Anda bisa menambahkannya di sini atau di Header.
+*/
+
+/* Jarak antar section agar tidak terlalu rapat */
+.landingContainer > * {
+  margin-bottom: 0; 
+}
+
+/* Responsive adjustment jika diperlukan */
+@media (max-width: 768px) {
+  .landingContainer {
+    padding-top: 0;
+  }
+}
